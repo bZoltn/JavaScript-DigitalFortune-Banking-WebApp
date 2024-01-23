@@ -1,4 +1,3 @@
-// commands/transferMoney.ts
 import { Page } from '@playwright/test';
 import { PlaywrightUtils } from './general';
 

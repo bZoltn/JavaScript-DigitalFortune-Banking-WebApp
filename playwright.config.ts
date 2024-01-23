@@ -9,7 +9,6 @@ const config: PlaywrightTestConfig = {
     actionTimeout: 20000,
   },
   retries: 3,
-  // Other global configuration options...
 };
 
 export default config;
