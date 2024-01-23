@@ -9,5 +9,6 @@ test('should log in with user credentials', async ({ page }) => {
 });
 
 test('money transfer test', async ({ page }) => {
+  await loginFlow(page, url, emailAndPass);
   await transferMoney(page, recipient, amount);
 });
