@@ -1,4 +1,3 @@
-// commands/login.ts
 import { Page } from '@playwright/test';
 import { PlaywrightUtils } from './general';
 import { Credential } from '../data/credentials';
@@ -10,9 +9,9 @@ export async function loginFlow(
 ) {
   await page.goto(baseUrl);
 
-  // Fill in the credentials
+  // 1. Fill in the credentials
   await PlaywrightUtils.fillFormFields(page, credentials);
 
-  // Click on the login button
-  await PlaywrightUtils.clickOnVisible(page, 'login-button');
+  // 2. Click on the login button
+  await PlaywrightUtils.clickOnVisible(page, 'login-btn');
 }

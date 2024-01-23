@@ -1,4 +1,3 @@
-// PlaywrightUtils.ts
 import { Page, expect } from '@playwright/test';
 
 export class PlaywrightUtils {
