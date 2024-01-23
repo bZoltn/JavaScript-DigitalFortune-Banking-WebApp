@@ -1,4 +1,3 @@
-// credentials.ts
 export interface Credential {
   dataTestId: string;
   value: string;
