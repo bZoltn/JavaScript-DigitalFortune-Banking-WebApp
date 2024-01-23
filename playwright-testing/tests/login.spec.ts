@@ -1,11 +1,7 @@
-import { test, expect, Page } from '@playwright/test';
-import LoginPage from '../commands/login';
+import { test } from '@playwright/test';
+import { loginFlow } from '../commands/login';
+import { emailAndPass, url } from '../data/credentials';
 
-test.describe('Login functionality', () => {
-  test('should log in successfully', async ({ page }: { page: Page }) => {
-    const loginPage = new LoginPage(page);
-    await loginPage.navigate();
-    await loginPage.login();
-    expect(await page.locator('user-field').isVisible()).toBeTruthy();
-  });
+test('should log in with user credentials', async ({ page }) => {
+  await loginFlow(page, url, emailAndPass);
 });

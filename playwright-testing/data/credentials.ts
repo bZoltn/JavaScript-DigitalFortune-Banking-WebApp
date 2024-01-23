@@ -1,9 +1,10 @@
-interface Credential {
+// credentials.ts
+export interface Credential {
   dataTestId: string;
   value: string;
 }
 
-export const emailAndPassword: Credential[] = [
+export const emailAndPass: Credential[] = [
   {
     dataTestId: 'user',
     value: 'zb',

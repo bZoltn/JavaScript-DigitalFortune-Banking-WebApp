@@ -1,30 +1,18 @@
-import { Page, Locator } from '@playwright/test';
-import { emailAndPassword, url } from '../data/credentials';
+// commands/login.ts
+import { Page } from '@playwright/test';
+import { PlaywrightUtils } from './general';
+import { Credential } from '../data/credentials';
 
-class LoginPage {
-  private page: Page;
-  private userInput: Locator;
-  private passwordInput: Locator;
-  private submitButton: Locator;
+export async function loginFlow(
+  page: Page,
+  baseUrl: string,
+  credentials: Credential[]
+) {
+  await page.goto(baseUrl);
 
-  constructor(page: Page) {
-    this.page = page;
-    this.userInput = page.locator('[data-testid="user"]');
-    this.passwordInput = page.locator('[data-testid="password"]');
-    this.submitButton = page.locator('text=Login');
-  }
+  // Fill in the credentials
+  await PlaywrightUtils.fillFormFields(page, credentials);
 
-  async navigate(): Promise<void> {
-    await this.page.goto(url);
-  }
-
-  async login(): Promise<void> {
-    for (const credential of emailAndPassword) {
-      const selector = `[data-testid="${credential.dataTestId}"]`;
-      await this.page.fill(selector, credential.value);
-    }
-    await this.submitButton.click();
-  }
+  // Click on the login button
+  await PlaywrightUtils.clickOnVisible(page, 'login-button');
 }
-
-export default LoginPage;
