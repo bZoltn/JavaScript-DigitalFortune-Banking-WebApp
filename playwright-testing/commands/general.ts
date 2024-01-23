@@ -5,8 +5,10 @@ export class PlaywrightUtils {
     return page.locator(`[data-testid="${selector}"]`);
   }
 
-  static async typeIntoField(page: Page, name: string, value: string) {
-    const field = await this.dataTestId(page, `${name}-field`);
+  // commands/general.ts
+  static async typeIntoField(page: Page, dataTestId: string, value: string) {
+    const field = page.locator(`[data-testid="${dataTestId}"]`);
+    await field.waitFor();
     await field.fill(value);
   }
 
