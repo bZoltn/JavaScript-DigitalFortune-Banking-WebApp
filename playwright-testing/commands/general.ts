@@ -19,8 +19,9 @@ export class PlaywrightUtils {
     }
   }
 
-  static async clickOnVisible(page: Page, selector: string) {
-    const element = await this.dataTestId(page, selector);
+  static async clickOnVisible(page: Page, testId: string) {
+    const element = await this.dataTestId(page, testId);
+    await element.waitFor({ state: 'visible' });
     await element.click();
   }
 
