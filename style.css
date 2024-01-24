@@ -12,7 +12,7 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   color: #444;
-  background-color: #f3f3f3;
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
   height: 100vh;
   padding: 2rem;
 }
@@ -20,8 +20,10 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
+  align-content: flex-start;
   align-items: center;
   padding: 0 2rem;
+  flex-direction: row-reverse;
 }
 
 .welcome {
@@ -31,50 +33,111 @@ nav {
 
 .logo {
   height: 5.25rem;
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
 }
 
 .login {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loginForm {
+  display: flex;
+  gap: 1rem;
+  width: 30rem;
+  align-self: center;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  background-color: rgb(242, 242, 242, 0.4);
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  padding: 3rem;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+}
+
+.login__label {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: -0.2rem;
+  margin-bottom: 1rem;
 }
 
 .login__input {
   border: none;
-  padding: 0.5rem 2rem;
-  font-size: 1.6rem;
+  padding: 0.7rem 2rem;
+  font-size: 1.2rem;
   font-family: inherit;
   text-align: center;
-  width: 12rem;
+  width: 100%;
   border-radius: 10rem;
   margin-right: 1rem;
   color: inherit;
   border: 1px solid #fff;
   transition: all 0.3s;
+  opacity: 0.8;
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
 }
 
 .login__input:focus {
   outline: none;
   border: 1px solid #ccc;
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
 }
 
 .login__input::placeholder {
-  color: #bbb;
+  color: black;
 }
 
 .login__btn {
   border: none;
   background: none;
-  font-size: 2.2rem;
+  font-size: 1.3rem;
   color: inherit;
   cursor: pointer;
   transition: all 0.3s;
+  text-align: center;
+  border-radius: 10rem;
+
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+  padding: 0.875rem 2rem;
 }
 
 .login__btn:hover,
 .login__btn:focus,
 .btn--sort:hover,
+.logout__btn:hover,
 .btn--sort:focus {
   outline: none;
   color: #777;
+  box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+}
+
+.logout__btn {
+  display: none;
+  width: fit-content;
+}
+
+.logout__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 /* Main */
@@ -122,6 +185,10 @@ nav {
   background-color: #fff;
   border-radius: 1rem;
   overflow: scroll;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
 }
 
 .movements__row {
@@ -191,7 +258,8 @@ nav {
   color: #f5465d;
 }
 
-.btn--sort {
+.btn--sort,
+.logout__btn {
   margin-left: auto;
   border: none;
   background: none;
@@ -208,14 +276,26 @@ nav {
 }
 
 .operation--transfer {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
   background-image: linear-gradient(to top left, #ffb003, #ffcb03);
 }
 
 .operation--loan {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
   background-image: linear-gradient(to top left, #39b385, #9be15d);
 }
 
 .operation--close {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.1);
   background-image: linear-gradient(to top left, #e52a5a, #ff585f);
 }
 
@@ -279,11 +359,19 @@ h2 {
 
 .logout-timer {
   padding: 0 0.3rem;
-  margin-top: 1.9rem;
-  text-align: right;
+  margin-top: 1rem;
+  text-align: left;
   font-size: 1.25rem;
 }
 
 .timer {
   font-weight: 600;
+}
+
+.logout-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 0.5rem;
 }

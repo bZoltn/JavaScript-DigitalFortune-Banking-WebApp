@@ -6,7 +6,7 @@ export interface Credential {
 export const emailAndPass: Credential[] = [
   {
     dataTestId: 'user',
-    value: 'zb',
+    value: 'test@email.com',
   },
   {
     dataTestId: 'password',

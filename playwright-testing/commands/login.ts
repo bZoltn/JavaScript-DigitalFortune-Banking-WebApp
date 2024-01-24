@@ -9,9 +9,12 @@ export async function loginFlow(
 ) {
   await page.goto(baseUrl);
 
-  // 1. Fill in the credentials
+  // Fill in the credentials
   await PlaywrightUtils.fillFormFields(page, credentials);
 
-  // 2. Click on the login button
+  // Click on the login button
   await PlaywrightUtils.clickOnVisible(page, 'login-btn');
+
+  // Click on the logout button
+  await PlaywrightUtils.clickOnVisible(page, 'logout-btn');
 }

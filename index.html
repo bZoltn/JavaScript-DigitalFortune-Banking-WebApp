@@ -14,28 +14,38 @@
     <link rel="stylesheet" href="style.css" />
     <title>DigitalFortune</title>
   </head>
-  <body>
+  <body class="body">
     <!-- Top navigation -->
     <nav>
-      <p class="welcome">Log in to get started</p>
+      <div class="logout__container">
+        <p class="welcome"></p>
+      </div>
       <img src="logo.png" alt="Logo" class="logo" />
-      <form class="login">
-        <input
-          data-testid="user-field"
-          type="text"
-          placeholder="user"
-          class="login__input login__input--user"
-        />
-        <input
-          data-testid="password-field"
-          type="password"
-          placeholder="PIN"
-          maxlength="4"
-          class="login__input login__input--pin"
-        />
-        <button data-testid="login-btn" class="login__btn">&rarr;</button>
-      </form>
     </nav>
+
+    <div class="login">
+      <form>
+        <div class="loginForm">
+          <p class="login__label">Log in</p>
+          <input
+            data-testid="user-field"
+            type="email"
+            placeholder="email"
+            class="login__input login__input--user"
+          />
+          <input
+            data-testid="password-field"
+            type="password"
+            placeholder="password"
+            maxlength="4"
+            class="login__input login__input--pin"
+          />
+          <button data-testid="login-btn" class="login__btn">
+            Login &rarr;
+          </button>
+        </div>
+      </form>
+    </div>
 
     <main class="app">
       <!-- Balance -->
@@ -137,9 +147,14 @@
       </div>
 
       <!-- Log out timer -->
-      <p class="logout-timer">
-        You will be logged out in <span class="timer">05:00</span>
-      </p>
+      <div class="logout-container">
+        <p class="logout-timer">
+          You will be logged out in <span class="timer">05:00</span>
+        </p>
+        <button id="logout" class="logout__btn" data-testid="logout-btn">
+          &larr; Logout
+        </button>
+      </div>
     </main>
     <script src="script.js"></script>
   </body>

@@ -14,4 +14,7 @@ export async function transferMoney(page: Page, recipient, amount) {
 
   // Click on "Transfer" button
   await PlaywrightUtils.clickOnVisible(page, 'transfer-btn');
+
+  // Click on the logout button
+  await PlaywrightUtils.clickOnVisible(page, 'logout-btn');
 }

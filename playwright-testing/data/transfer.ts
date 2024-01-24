@@ -10,5 +10,5 @@ export const amount = {
 
 export const recipient = {
   dataTestId: 'transfer-to',
-  value: 'us',
+  value: 'us@email.com',
 };
