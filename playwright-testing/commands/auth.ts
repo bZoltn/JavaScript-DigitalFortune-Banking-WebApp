@@ -14,7 +14,4 @@ export async function loginFlow(
 
   // Click on the login button
   await PlaywrightUtils.clickOnVisible(page, 'login-btn');
-
-  // Click on the logout button
-  await PlaywrightUtils.clickOnVisible(page, 'logout-btn');
 }
